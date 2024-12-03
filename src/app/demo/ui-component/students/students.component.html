@@ -1,0 +1,90 @@
+<!-- [ Main Content ] start -->
+<div class="row">
+  <!-- [ Add Student ] start -->
+  <div class="col-md-6">
+    <app-card cardTitle="Add Student">
+      <form [formGroup]="studentForm" (ngSubmit)="addStudent()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            formControlName="name"
+            type="text"
+            class="form-control"
+            placeholder="Enter student name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            class="form-control"
+            placeholder="Enter student email"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add Student</button>
+      </form>
+    </app-card>
+  </div>
+  <!-- [ Add Student ] end -->
+
+  <!-- [ Upload Students ] start -->
+  <div class="col-md-6">
+    <app-card cardTitle="Upload Students">
+      <form (ngSubmit)="uploadStudents()">
+        <div class="form-group">
+          <label for="fileUpload">Upload File</label>
+          <input
+            id="fileUpload"
+            type="file"
+            class="form-control"
+            (change)="onFileSelected($event)"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+    </app-card>
+  </div>
+  <!-- [ Upload Students ] end -->
+
+  <!-- [ Student List ] start -->
+  <div class="col-md-12">
+    <app-card cardTitle="Student List">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>CIN</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students; let i = index">
+            <td>{{ student?.user?.cin}}</td>
+            <td>{{ student?.user?.username }}</td>
+            <td>{{ student?.user?.email }}</td>
+            <td>
+              <button
+                class="btn btn-warning btn-sm"
+                (click)="editStudent(student)"
+              >
+                Edit
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="deleteStudent(student.id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </app-card>
+  </div>
+  <!-- [ Student List ] end -->
+</div>
+<!-- [ Main Content ] end -->
