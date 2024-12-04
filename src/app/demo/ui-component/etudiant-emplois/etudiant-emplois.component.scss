@@ -1,0 +1,29 @@
+.matiere p, .enseignant p, .salle p{
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    color: rgb(94, 94, 94);
+}
+thead tr td{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(56, 56, 56);
+}
+tbody tr td:first-child{
+    font-weight: bold;
+    text-align: center;
+    color: rgb(56, 56, 56);
+}
+.matiere p{
+    font-size: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+.enseignant p{
+    font-size: .7em;
+}
+.salle p{
+    font-size: .8em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+}

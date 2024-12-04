@@ -1,3 +1,4 @@
+import { AdminEmploisComponent } from './demo/ui-component/admin-emplois/admin-emplois.component';
 // angular import
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -23,12 +24,34 @@ const routes: Routes = [
       {
         path: 'students',
         loadComponent: () => import('./demo/ui-component/students/students.component').then(m => m.StudentCrudComponent)
-
       },
       {
         path: 'professors',
         loadComponent: () => import('./demo/ui-component/professors/professors.component').then(m => m.ProfessorsComponent)
-
+      },
+      {
+        path: 'admin-emplois',
+        loadComponent: () => import('./demo/ui-component/admin-emplois/admin-emplois.component').then(m => m.AdminEmploisComponent)
+      },
+      {
+        path: 'enseignant-emplois/:id',
+        loadComponent: () => import('./demo/ui-component/enseignant-emplois/enseignant-emplois.component').then(m => m.EnseignantEmploisComponent)
+      },
+      {
+        path: 'enseignant-absence/:id',
+        loadComponent: () => import('./demo/ui-component/enseignant-absence/enseignant-absence.component').then(m => m.EnseignantAbsenceComponent)
+      },
+      {
+        path: 'etudiant-emplois/:id',
+        loadComponent: () => import('./demo/ui-component/etudiant-emplois/etudiant-emplois.component').then(m => m.EtudiantEmploisComponent)
+      },
+      {
+        path: 'etudiant-absence/:id',
+        loadComponent: () => import('./demo/ui-component/etudiant-absence/etudiant-absence.component').then(m => m.EtudiantAbsenceComponent)
+      },
+      {
+        path: 'salles-emplois/:id',
+        loadComponent: () => import('./demo/ui-component/salles-emplois/salles-emplois.component').then(m => m.SallesEmploisComponent)
       },
       {
         path: 'color',

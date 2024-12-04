@@ -66,7 +66,7 @@ export const NavigationItems: NavigationItem[] = [
   },
   {
     id: 'utilities',
-    title: 'UI Components',
+    title: 'Actors',
     type: 'group',
     icon: 'icon-navigation',
     children: [
@@ -86,24 +86,6 @@ export const NavigationItems: NavigationItem[] = [
         url: '/professors',
         icon: 'professor'
       },
-      {
-        id: 'color',
-        title: 'Colors',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/color',
-        icon: 'bg-colors'
-      },
-      {
-        id: 'tabler',
-        title: 'Tabler',
-        type: 'item',
-        classes: 'nav-item',
-        url: 'https://ant.design/components/icon',
-        icon: 'ant-design',
-        target: true,
-        external: true
-      }
     ]
   },
 
@@ -113,6 +95,55 @@ export const NavigationItems: NavigationItem[] = [
     type: 'group',
     icon: 'icon-navigation',
     children: [
+      {
+        id: 'Admin Timetable',
+        title: 'Admin Timetable',
+        type: 'item',
+        url: '/admin-emplois',
+        classes: 'nav-item',
+        icon: 'chrome'
+      },
+      {
+        id: 'Professor-Timetable',
+        title: 'Professor-Timetable',
+        type: 'item',
+        url: '/enseignant-emplois/1',
+        classes: 'nav-item',
+        icon: 'chrome'
+      },
+      {
+        id: 'Professor-Absence',
+        title: 'Professor-Absence',
+        type: 'item',
+        url: '/enseignant-absence/1',
+        classes: 'nav-item',
+        icon: 'chrome'
+      },
+
+      {
+        id: 'Student-Timetable',
+        title: 'Student-Timetable',
+        type: 'item',
+        url: '/etudiant-emplois/1',
+        classes: 'nav-item',
+        icon: 'chrome'
+      },
+      {
+        id: 'Student-Absence',
+        title: 'Student-Absence',
+        type: 'item',
+        url: '/etudiant-absence/1',
+        classes: 'nav-item',
+        icon: 'chrome'
+      },
+      {
+        id: 'ClassRoom-Timetable',
+        title: 'ClassRoom-Timetable',
+        type: 'item',
+        url: '/salles-emplois/1',
+        classes: 'nav-item',
+        icon: 'chrome'
+      },
       {
         id: 'sample-page',
         title: 'Sample Page',
