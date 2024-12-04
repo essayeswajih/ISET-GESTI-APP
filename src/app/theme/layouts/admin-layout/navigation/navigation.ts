@@ -76,7 +76,7 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/students',
-        icon: 'student'
+        icon: 'chrome'
       },
       {
         id: 'professor',
@@ -84,7 +84,7 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/professors',
-        icon: 'professor'
+        icon: 'chrome'
       },
     ]
   },

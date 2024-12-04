@@ -5,11 +5,13 @@ import { Professor } from '../../models/professor';
 import { ProfessorsServiceService } from './professors-service.service';
 import { CardComponent } from "../../../theme/shared/components/card/card.component";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { User } from '../../models/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-professors',
   standalone: true,
-  imports: [CardComponent, ReactiveFormsModule], // Add ReactiveFormsModule here
+  imports: [CardComponent, ReactiveFormsModule, CommonModule], // Add ReactiveFormsModule here
   templateUrl: './professors.component.html',
   styleUrls: ['./professors.component.scss']
 })
@@ -28,8 +30,9 @@ export class ProfessorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.professorForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      cin: ['', Validators.required],
     });
 
     this.loadProfessors(); // Load professors on initialization
@@ -39,14 +42,23 @@ export class ProfessorsComponent implements OnInit {
   loadProfessors(): void {
     this.professorsService.findAll().then((professors) => {
       this.professors = professors;
+      console.log('Professors:', this.professors);
     });
   }
 
   // Handle form submission for adding a professor
   addProfessor(): void {
     if (this.professorForm.valid) {
-      const professor: Professor = this.professorForm.value;
-      this.professorsService.addProfessor(professor).then((newProfessor) => {
+      const user : User = this.professorForm.value;
+      const professor: Professor = {
+        user: user,
+        id: null,
+        courses: [],
+        depList: []
+      }
+      this.professorsService.addProfessor(professor).then((data:any) => {
+        console.log('New professor added:', data.data);
+        const newProfessor = data.data;
         this.professors.push(newProfessor); // Add the new professor to the list
         this.professorForm.reset(); // Reset the form
       });

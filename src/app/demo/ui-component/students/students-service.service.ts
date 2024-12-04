@@ -6,7 +6,7 @@ import { Student } from '../../models/student';
 })
 export class StudentsServiceService {
     private axiosClient: AxiosInstance;
-    private readonly baseUrl = 'http://localhost:8080/api/v1/admin/students';
+    private readonly baseUrl = 'http://localhost:9090/api/v1/admin/students';
   
     constructor() {
       this.axiosClient = axios.create({
@@ -20,7 +20,7 @@ export class StudentsServiceService {
     // Get all students
     async findAll(): Promise<Student[]> {
       try {
-        const response = await this.axiosClient.get('/');
+        const response = await this.axiosClient.get('');
         return response.data.data as Student[];
       } catch (error) {
         console.error('Error fetching students:', error);

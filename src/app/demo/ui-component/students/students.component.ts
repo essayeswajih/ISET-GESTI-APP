@@ -5,6 +5,7 @@ import { StudentsServiceService } from './students-service.service';
 import { Student } from '../../models/student';
 
 import axios, { AxiosInstance } from 'axios';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-students',
@@ -25,8 +26,9 @@ export class StudentCrudComponent {
   
     ngOnInit(): void {
       this.studentForm = this.formBuilder.group({
-        name: ['', Validators.required],
+        username: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
+        cin: ['', Validators.required],
       });
   
       this.loadStudents(); // Load students on initialization
@@ -42,8 +44,15 @@ export class StudentCrudComponent {
     // Handle form submission for adding a student
     addStudent(): void {
       if (this.studentForm.valid) {
-        const student: Student = this.studentForm.value;
-        this.studentsService.addStudent(student).then((newStudent) => {
+        const user : User = this.studentForm.value;
+        const student: Student = {
+          user: user,
+          id: null,
+          courses: []
+        };
+        this.studentsService.addStudent(student).then((data:any) => {
+          console.log('New student added:', data.data);
+          const newStudent = data.data;
           this.students.push(newStudent); // Add the new student to the list
           this.studentForm.reset(); // Reset the form
         });
