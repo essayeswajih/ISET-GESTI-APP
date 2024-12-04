@@ -1,0 +1,91 @@
+<!-- [ Main Content ] start -->
+<div class="row">
+    <!-- [ Add Course ] start -->
+    <div class="col-md-6">
+      <app-card cardTitle="Add Course">
+        <form [formGroup]="courseForm" (ngSubmit)="addCourse()">
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label for="courseName">Course Name</label>
+              <input
+                id="courseName"
+                formControlName="courseName"
+                type="text"
+                class="form-control"
+                placeholder="Enter course name"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="courseDescription">Course Description</label>
+              <input
+                id="courseDescription"
+                formControlName="courseDescription"
+                type="text"
+                class="form-control"
+                placeholder="Enter course description"
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+      </app-card>
+    </div>
+    <!-- [ Add Course ] end -->
+  
+    <!-- [ Upload Courses ] start -->
+    <div class="col-md-6">
+      <app-card cardTitle="Upload Courses">
+        <form (ngSubmit)="uploadCourses()">
+          <div class="form-group">
+            <label for="fileUpload">Upload File</label>
+            <input
+              id="fileUpload"
+              type="file"
+              class="form-control"
+              (change)="onFileSelected($event)"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+      </app-card>
+    </div>
+    <!-- [ Upload Courses ] end -->
+  
+    <!-- [ Course List ] start -->
+    <div class="col-md-12">
+      <app-card cardTitle="Course List">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Course Name</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of courses; let i = index">
+              <td>{{ course.courseName }}</td>
+              <td>{{ course.courseDescription }}</td>
+              <td>
+                <button
+                  class="btn btn-warning btn-sm"
+                  (click)="editCourse(course)"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  (click)="deleteCourse(course.id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </app-card>
+    </div>
+    <!-- [ Course List ] end -->
+  </div>
+  <!-- [ Main Content ] end -->
+  
